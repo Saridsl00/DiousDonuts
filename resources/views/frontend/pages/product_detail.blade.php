@@ -25,7 +25,7 @@
 						<div class="bread-inner">
 							<ul class="bread-list">
 								<li><a href="{{route('home')}}">Home<i class="ti-arrow-right"></i></a></li>
-								<li class="active"><a href="">Donuts Details</a></li>
+								<li class="active"><a href="">Shop Details</a></li>
 							</ul>
 						</div>
 					</div>
@@ -84,9 +84,24 @@
                                                 @php 
                                                     $after_discount=($product_detail->price-(($product_detail->price*$product_detail->discount)/100));
                                                 @endphp
-												<p class="price"><span class="discount">Rp. {{number_format($after_discount,2)}}</span><s>Rp.{{number_format($product_detail->price,2)}}</s> </p>
+												<p class="price"><span class="discount">${{number_format($after_discount,2)}}</span><s>${{number_format($product_detail->price,2)}}</s> </p>
 												<p class="description">{!!($product_detail->summary)!!}</p>
 											</div>
+											<!--/ End Description -->
+											<!-- Color -->
+											{{-- <div class="color">
+												<h4>Available Options <span>Color</span></h4>
+												<ul>
+													<li><a href="#" class="one"><i class="ti-check"></i></a></li>
+													<li><a href="#" class="two"><i class="ti-check"></i></a></li>
+													<li><a href="#" class="three"><i class="ti-check"></i></a></li>
+													<li><a href="#" class="four"><i class="ti-check"></i></a></li>
+												</ul>
+											</div> --}}
+											<!--/ End Color -->
+	
+											<!--/ End Size -->
+											<!-- Product Buy -->
 											<div class="product-buy">
 												<form action="{{route('single-add-to-cart')}}" method="POST">
 													@csrf 
@@ -318,8 +333,8 @@
                                             @php 
                                                 $after_discount=($data->price-(($data->discount*$data->price)/100));
                                             @endphp
-                                            <span class="old">Rp. {{number_format($data->price,2)}}</span>
-                                            <span>Rp. {{number_format($after_discount,2)}}</span>
+                                            <span class="old">${{number_format($data->price,2)}}</span>
+                                            <span>${{number_format($after_discount,2)}}</span>
                                         </div>
                                       
                                     </div>

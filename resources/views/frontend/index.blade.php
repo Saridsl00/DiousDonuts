@@ -3,12 +3,11 @@
 @section('main-content')
 <!-- Slider Area -->
 @if(count($banners)>0)
-    <section id="Gslider" class="carousel slide" data-ride="carousel">
+    <section id="Gslider" class="carousel slide" data-ride="carousel" data-interval="3000">
         <ol class="carousel-indicators">
             @foreach($banners as $key=>$banner)
         <li data-target="#Gslider" data-slide-to="{{$key}}" class="{{(($key==0)? 'active' : '')}}"></li>
             @endforeach
-
         </ol>
         <div class="carousel-inner" role="listbox">
                 @foreach($banners as $key=>$banner)
@@ -151,25 +150,6 @@
             </div>
         </div>
 </div>
-<!-- End Product Area -->
-{{-- @php
-    $featured=DB::table('products')->where('is_featured',1)->where('status','active')->orderBy('id','DESC')->limit(1)->get();
-@endphp --}}
-<!-- Start Midium Banner  -->
-
-<!-- End Midium Banner -->
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
 
 @push('styles')
